@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" type="text/css" href="https://sputnik.zone/-stuff/-fonts/fonts.css">
+</head>
+<body>
+	<h1 class="pageTitle">Inspiration for weird musicians like me</h1>
+	<p class="pageDesc">This tool gets a made up genre from genrenator, then searches and amalgamates a number of sounds from freesound to create a groundbreaking new noise</p>
+	<div class="selectPanel">
+		<select id="selectApi" name="selectApi" class="select">
+			<option value="https://binaryjazz.us/wp-json/genrenator/v1/genre/">Genre</option>
+			<option value="https://binaryjazz.us/wp-json/genrenator/v1/story/">Story</option>
+		</select>
+		<button id="fetchGenre" class="btn">Generate!</button>
+		<p id="genreDisplay" class="genreDisplay">Generate a genre</p>
+		<button id="fetchSound" class="btn">Get Funky!</button>
+	</div>
+	<div id="audioDiv"></div>
+</body>
+	<script src="index.js"></script>
+</html>

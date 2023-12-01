@@ -1,0 +1,98 @@
+:root{
+	--bg: #FFF;
+	--text: #8A8A8A;
+	--border: #C2C2C2;
+	--wii-glow: #66E5FF;
+	--btnBg: #F1F1F1;
+	--btnHover: #E5E5E5;
+	--btnActive: #DFDFDF;
+}
+
+body{
+	padding: 0;
+}
+
+.pageTitle{
+	width: fit-content;
+	margin: auto;
+	color: var(--text);
+	font-size: min(4.6vw, 32px);
+	font-family: "RodinNTLG Pro";
+	font-weight: 500;
+}
+
+.pageDesc{
+	width: min(72.8vw, 416px);
+	margin: auto;
+	color: var(--text);
+	text-align: center;
+	font-size: min(2.8vw, 16px);
+	font-family: "RodinNTLG Pro";
+	font-weight: 200;
+}
+
+.selectPanel{
+	width: min(81.9vw, 468px);
+	margin: 20px auto 30px auto;
+	border-radius: 15px;
+	padding: 10px;
+	display: block;
+	color: var(--text);
+	font-size: min(2.8vw, 16px);
+	font-family: "RodinNTLG Pro";
+	font-weight: 200;
+	background-color: var(--bg);
+	box-shadow: 0 5px 30px 5px var(--border);
+}
+
+.genreDisplay{
+	width: min(81.9vw, 468px);
+}
+
+.btn{
+	padding: 0px 12px;
+	color: var(--text);
+	background-color: var(--btnBg);
+	border-style: solid;
+	border-width: 1.5px;
+	border-radius: 18px;
+	border-color: var(--border);
+	font-size: min(2.8vw, 16px);
+	font-family: "RodinNTLG Pro";
+	font-weight: 200;
+	transition: 0.5s;
+}
+
+.btn:hover{
+	background-color: var(--btnHover);
+}
+
+.btn:active{
+	background-color: var(--btnActive);
+}
+
+.btnClick{
+	color: var(--wii-glow);
+	text-shadow: 0px 0px 2px var(--wii-glow);
+	border-color: var(--wii-glow);
+	box-shadow: 0px 0px 2px 1px var(--wii-glow), 0px 0px 5px 0.5px var(--wii-glow) inset;
+	transition: 0.1s;
+}
+
+.select{
+	width: 85px;
+	padding: 0px 8px;
+	color: var(--text);
+	background-color: var(--btnBg);
+	border-style: solid;
+	border-width: 1.5px;
+	border-radius: 8px;
+	border-color: var(--border);
+	font-size: min(2.8vw, 16px);
+	font-family: "RodinNTLG Pro";
+	font-weight: 200;
+}
+
+.select:hover{
+	background-color: var(--btnHover);
+}
