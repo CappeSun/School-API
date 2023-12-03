@@ -5,6 +5,7 @@ const fetchSoundBtn = document.getElementById('fetchSound');
 const genreDisplay = document.getElementById('genreDisplay');
 
 let genres = false;		//Make sure genre is generated before fetchSound() is called
+let isWebKit = navigator.userAgent.includes('AppleWebKit');		//To check if user can use .ogg
 
 async function fetchGenre(){		//Triggered by the genre button, fills 'genres' with an array of genres
 	let response = await fetch(selectApi.value);
@@ -24,7 +25,7 @@ async function fetchSound(url){		//Triggered by the funky button, creates audio 
 	jsonData = await response.json();
 
 	let audio = document.createElement('audio');
-	audio.src = jsonData.previews['preview-hq-ogg'];		//Set audio source to .ogg hosted at freesound
+	audio.src = isWebKit ? jsonData.previews['preview-hq-mp3'] : jsonData.previews['preview-hq-ogg'];		//Set audio source to .ogg hosted at freesound, or .mp3 if browser can't play .ogg (aka WebKit)
 	audioDiv.appendChild(audio);
 	audio.play();
 	audio.addEventListener('ended', () => audio.play());		//Keep audio looping
