@@ -1,6 +1,6 @@
 # Description
 
-This is a school assignment, where I have created a (admittedly pretty useless) tool for creating sounds. You generate made-up genres from genrenator, and when you've found something you want to hear, you press the funky button to get sounds from freesound.
+This is a school assignment, where I have created a gloriously pointless tool for creating sounds. You generate made-up genres from genrenator, and when you've found something you want to hear, you press the funky button to get sounds from freesound.
 
 # APIs Used
 
