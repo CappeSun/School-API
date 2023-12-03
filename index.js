@@ -10,27 +10,27 @@ async function fetchGenre(){		//Triggered by the genre button, fills 'genres' wi
 	let response = await fetch(selectApi.value);
 	let jsonData = await response.json();
 
-	genreDisplay.textContent = jsonData;
+	genreDisplay.textContent = jsonData;		//Prepares data for sound searching
 	genres = jsonData.split(" ");
 };
 
-async function fetchSound(url){		//Triggered by the sound button, creates audio elements for every sound found
+async function fetchSound(url){		//Triggered by the funky button, creates audio elements for every sound found
 	let response = await fetch(url);
 	let jsonData = await response.json();
 
-	if (jsonData.count == 0) return;
+	if (jsonData.count == 0) return;		//If no results are found, exit the function
 
 	response = await fetch(`https://freesound.org/apiv2/sounds/${jsonData.results[0].id}/?fields=previews&token=95MH6hu4s3bs52oXAegU8YczKAjzSluoDQFsHOUf`);		//Get the audio of the first result
 	jsonData = await response.json();
 
 	let audio = document.createElement('audio');
-	audio.src = jsonData.previews['preview-hq-ogg'];
+	audio.src = jsonData.previews['preview-hq-ogg'];		//Set audio source to .ogg hosted at freesound
 	audioDiv.appendChild(audio);
 	audio.play();
-	audio.addEventListener('ended', () => audio.play());
+	audio.addEventListener('ended', () => audio.play());		//Keep audio looping
 };
 
-function btnClick(btnEl){
+function aniBtnClick(btnEl){		//Animate button click
 	btnEl.classList.remove('btnClick');
 	btnEl.classList.add('btnClick');
 	setTimeout(() =>{
@@ -39,16 +39,19 @@ function btnClick(btnEl){
 }
 
 fetchGenreBtn.addEventListener('click', () =>{
-	btnClick(fetchGenreBtn);
+	aniBtnClick(fetchGenreBtn);
 	fetchGenre();
 });
 
 fetchSoundBtn.addEventListener('click', () =>{
-	btnClick(fetchSoundBtn);
-	audioDiv.textContent = '';
+	aniBtnClick(fetchSoundBtn);
 	if (genres){
+		audioDiv.textContent = '';		//Remove previous audio elements
+
 		genres.forEach((currentValue) =>{
 			fetchSound(`https://freesound.org/apiv2/search/text/?query=${currentValue}&token=95MH6hu4s3bs52oXAegU8YczKAjzSluoDQFsHOUf`);
 		});
+
+		genres = false;		//Reset genres to prevent spamming freesound
 	}
 });
